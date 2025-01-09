@@ -1,7 +1,7 @@
 package com.epage;
 
 
-import com.epage.dto.UserRequest;
+import com.epage.request.UserRequest;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import javax.servlet.ServletException;
@@ -73,9 +73,12 @@ public class RegisterServlet extends HttpServlet {
         }
 
         if (isSaved) {
+            String redirectPath = "/login.jsp?register=true";
+            System.out.println("[e-Page Login] Redirecting to: " + redirectPath);
+
             response.setStatus(HttpServletResponse.SC_OK);
             response.getWriter().write("User registered successfully");
-            response.sendRedirect(request.getContextPath() + "/login.jsp?register=true");
+            response.sendRedirect(redirectPath);
 
         } else {
             response.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);

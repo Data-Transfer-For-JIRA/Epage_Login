@@ -1,4 +1,4 @@
-package com.epage.dto;
+package com.epage.request;
 
 public class UserRequest {
     private String role;

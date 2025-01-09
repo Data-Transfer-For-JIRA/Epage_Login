@@ -16,6 +16,9 @@ public class LogoutServlet extends HttpServlet {
             request.getSession(false).invalidate();
         }
         // 로그인 페이지로 리다이렉트
-        response.sendRedirect(request.getContextPath() + "/login.jsp");
+        String redirectPath = "https://epage.markany.com/markany/login.jsp";
+        System.out.println("[e-Page Logout] Redirecting to: " + redirectPath);
+
+        response.sendRedirect(redirectPath);
     }
 }
